@@ -35,5 +35,7 @@ public class Deck {
         cards.removeAll(drawnCards);
         return drawnCards;
     }
-    
+    public boolean isEmpty() {
+        return cards.isEmpty();
+    }
 }

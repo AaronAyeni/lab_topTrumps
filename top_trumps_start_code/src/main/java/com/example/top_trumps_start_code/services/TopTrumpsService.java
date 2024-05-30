@@ -1,6 +1,7 @@
 package com.example.top_trumps_start_code.services;
 
 import com.example.top_trumps_start_code.models.Card;
+import com.example.top_trumps_start_code.models.Deck;
 import org.springframework.stereotype.Service;
 
 
@@ -8,6 +9,19 @@ import java.util.List;
 
 @Service
 public class TopTrumpsService {
+
+    public Deck deck;
+
+    public void startNewGame() {
+        this.deck = new Deck();
+    }
+
+    public List<Card> drawTwoCards() {
+        if (deck == null || deck.isEmpty()) {
+            return null;
+        }
+        return deck.drawCards(2);
+    }
 
     public String checkWinner(List<Card> cards) {
         if (cards == null || cards.size() != 2) {
