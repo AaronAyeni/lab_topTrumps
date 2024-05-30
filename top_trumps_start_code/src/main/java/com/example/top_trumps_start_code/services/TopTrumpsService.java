@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class TopTrumpsService {
 
-    public String compareCards(List<Card> cards) {
+    public String checkWinner(List<Card> cards) {
         if (cards == null || cards.size() != 2) {
             return "Invalid input. Please provide exactly two cards.";
         }

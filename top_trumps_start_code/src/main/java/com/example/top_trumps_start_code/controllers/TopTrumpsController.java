@@ -23,7 +23,7 @@ public class TopTrumpsController {
 
     @PostMapping("/compare")
    public ResponseEntity<String> checkWinner(@RequestBody List<Card> cards){
-        String message = topTrumpsService.compareCards(cards);
+        String message = topTrumpsService.checkWinner(cards);
         return new ResponseEntity<>(message, HttpStatus.OK);
 
     }
