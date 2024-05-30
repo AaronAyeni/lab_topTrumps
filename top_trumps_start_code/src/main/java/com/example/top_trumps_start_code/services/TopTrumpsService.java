@@ -35,7 +35,7 @@ public class TopTrumpsService {
         int card2Value = card2.getCardValue();
 
         if (card1Value > card2Value) {
-            return card1.getRank() + "of" + card1.getSuit() + "wins!";
+            return card1.getRank() + " of " + card1.getSuit() + " wins!";
         } else if (card1Value < card2Value) {
             return card2.getRank() + " of " + card2.getSuit() + " wins!";
         } else {

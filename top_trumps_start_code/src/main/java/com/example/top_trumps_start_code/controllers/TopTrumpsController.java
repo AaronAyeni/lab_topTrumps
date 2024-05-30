@@ -21,10 +21,21 @@ public class TopTrumpsController {
     @Autowired
     TopTrumpsService topTrumpsService;
 
-    @PostMapping("/compare")
-   public ResponseEntity<String> checkWinner(@RequestBody List<Card> cards){
-        String message = topTrumpsService.checkWinner(cards);
-        return new ResponseEntity<>(message, HttpStatus.OK);
+    @PostMapping("/startnewgame")
+    public ResponseEntity<String> startNewGame(){
+        topTrumpsService.startNewGame();
+        return new ResponseEntity<>("New game started.", HttpStatus.OK);
+    }
 
+    @PostMapping("/play_a_round")
+   public ResponseEntity<String> playRound(){
+        List<Card> drawnCards = topTrumpsService.drawTwoCards();
+        if (drawnCards == null || drawnCards.size() != 2){
+            return new ResponseEntity<>("No cards left to play another round. Restart the game", HttpStatus.BAD_REQUEST);
+        }else
+        {
+        String message = topTrumpsService.checkWinner(drawnCards);
+        return new ResponseEntity<>(message, HttpStatus.OK);
+        }
     }
 }

@@ -28,13 +28,28 @@ public class Deck {
     }
 
     public List<Card> drawCards(int count) {
+        // Check if there are fewer cards in the deck than the requested count
         if (cards.size() < count) {
+            // If not enough cards, return an empty list
             return new ArrayList<>();
         }
-        List<Card> drawnCards = new ArrayList<>(cards.subList(0, count));
-        cards.removeAll(drawnCards);
+        // Create a list to hold the drawn cards
+        List<Card> drawnCards = new ArrayList<>();
+
+        //copy the first 'count' cards from the deck to the drawnCards list
+        for (int i = 0; i < count; i++) {
+            drawnCards.add(cards.get(i));
+        }
+
+        // Remove the drawn cards from the deck using a loop
+        for (int i = 0; i < count; i++) {
+            cards.remove(0); // Remove the first card in the list repeatedly
+        }
+
+        // Return the list of drawn cards
         return drawnCards;
     }
+
     public boolean isEmpty() {
         return cards.isEmpty();
     }
