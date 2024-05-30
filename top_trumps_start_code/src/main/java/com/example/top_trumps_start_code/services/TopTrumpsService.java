@@ -25,7 +25,7 @@ public class TopTrumpsService {
         } else if (card1Value < card2Value) {
             return card2.getRank() + " of " + card2.getSuit() + " wins!";
         } else {
-            return "It's a tie!";
+            return "It's a draw!";
         }
     }
 
